@@ -1,11 +1,11 @@
 <?php
 
+use App\Http\Controllers\AuthController;
 use App\Http\Controllers\EventController;
 use App\Http\Controllers\MassController;
 use App\Http\Controllers\PaymentController;
 use App\Http\Controllers\SongController;
 use App\Http\Controllers\UserController;
-use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -14,9 +14,16 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 */
 
+// ── Authentification ────────────────────────────────────────────────────
+Route::prefix('auth')->group(function () {
+    Route::post('/login', [AuthController::class, 'login']);
+});
+
 Route::middleware('auth:sanctum')->group(function () {
 
-    Route::get('/me', fn (Request $request) => $request->user());
+    // ── Auth ────────────────────────────────────────────────────────────
+    Route::get('/me', [AuthController::class, 'me']);
+    Route::post('/auth/logout', [AuthController::class, 'logout']);
 
     // ── Répertoire chants ───────────────────────────────────────────────
     Route::prefix('songs')->group(function () {
