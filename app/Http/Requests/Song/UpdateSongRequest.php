@@ -16,9 +16,10 @@ class UpdateSongRequest extends FormRequest
     {
         return [
             'title'  => ['required', 'string', 'max:255'],
-            'author' => ['nullable', 'string', 'max:255'],
-            'lyrics' => ['nullable', 'string'],
-            'notes'  => ['nullable', 'string'],
+            'author'    => ['nullable', 'string', 'max:255'],
+            'reference' => ['nullable', 'string', 'max:50'],
+            'lyrics'    => ['nullable', 'string'],
+            'notes'     => ['nullable', 'string'],
         ];
     }
 
@@ -28,6 +29,7 @@ class UpdateSongRequest extends FormRequest
             id: (int) $this->route('song'),
             title: $this->input('title'),
             author: $this->input('author'),
+            reference: $this->input('reference'),
             lyrics: $this->input('lyrics'),
             notes: $this->input('notes'),
         );

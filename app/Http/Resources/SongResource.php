@@ -11,9 +11,10 @@ class SongResource extends JsonResource
     {
         return [
             'id'         => $this->id,
+            'uuid'       => $this->uuid,
             'title'      => $this->title,
             'author'     => $this->author,
-            'lyrics'     => $this->lyrics,
+            'reference'  => $this->reference,
             'notes'      => $this->notes,
             'created_at' => $this->created_at->toIso8601String(),
             'updated_at' => $this->updated_at->toIso8601String(),

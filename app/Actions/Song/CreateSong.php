@@ -13,10 +13,10 @@ class CreateSong
     public function __invoke(CreateSongDTO $dto): Song
     {
         return $this->songs->create([
-            'title'  => $dto->title,
-            'author' => $dto->author,
-            'lyrics' => $dto->lyrics,
-            'notes'  => $dto->notes,
+            'title'     => $dto->title,
+            'author'    => $dto->author,
+            'reference' => $dto->reference,
+            'notes'     => $dto->notes,
         ]);
     }
 }

@@ -15,10 +15,10 @@ class UpdateSong
         $song = $this->songs->findById($dto->id);
 
         return $this->songs->update($song, [
-            'title'  => $dto->title,
-            'author' => $dto->author,
-            'lyrics' => $dto->lyrics,
-            'notes'  => $dto->notes,
+            'title'     => $dto->title,
+            'author'    => $dto->author,
+            'reference' => $dto->reference,
+            'notes'     => $dto->notes,
         ]);
     }
 }

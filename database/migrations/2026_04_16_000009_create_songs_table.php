@@ -13,6 +13,7 @@ return new class extends Migration
             $table->uuid('uuid')->unique();
             $table->string('title', 255);
             $table->string('author', 255)->nullable();
+            $table->string('reference', 50)->nullable();
             $table->text('notes')->nullable();
             $table->timestamps();
         });

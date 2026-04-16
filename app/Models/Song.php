@@ -12,7 +12,7 @@ class Song extends Model
 {
     use HasFactory, HasUuids;
 
-    protected $fillable = ['title', 'author', 'notes'];
+    protected $fillable = ['title', 'author', 'reference', 'notes'];
 
     public function themes(): BelongsToMany
     {

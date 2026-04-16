@@ -16,9 +16,10 @@ class CreateSongRequest extends FormRequest
     {
         return [
             'title'  => ['required', 'string', 'max:255'],
-            'author' => ['nullable', 'string', 'max:255'],
-            'lyrics' => ['nullable', 'string'],
-            'notes'  => ['nullable', 'string'],
+            'author'    => ['nullable', 'string', 'max:255'],
+            'reference' => ['nullable', 'string', 'max:50'],
+            'lyrics'    => ['nullable', 'string'],
+            'notes'     => ['nullable', 'string'],
         ];
     }
 
@@ -27,6 +28,7 @@ class CreateSongRequest extends FormRequest
         return new CreateSongDTO(
             title: $this->input('title'),
             author: $this->input('author'),
+            reference: $this->input('reference'),
             lyrics: $this->input('lyrics'),
             notes: $this->input('notes'),
         );
