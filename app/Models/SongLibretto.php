@@ -1,0 +1,25 @@
+<?php
+
+namespace App\Models;
+
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+
+class SongLibretto extends Model
+{
+    use HasFactory, HasUuids;
+
+    protected $fillable = ['song_id', 'libretto_id', 'position'];
+
+    public function song(): BelongsTo
+    {
+        return $this->belongsTo(Song::class);
+    }
+
+    public function libretto(): BelongsTo
+    {
+        return $this->belongsTo(Libretto::class);
+    }
+}
