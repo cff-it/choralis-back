@@ -6,9 +6,9 @@ use App\DTOs\Event\CreateEventDTO;
 use App\Models\Event;
 use App\Repositories\EventRepository;
 
-class CreateEvent
+readonly class CreateEventAction
 {
-    public function __construct(private readonly EventRepository $events) {}
+    public function __construct(private EventRepository $events) {}
 
     public function __invoke(CreateEventDTO $dto): Event
     {

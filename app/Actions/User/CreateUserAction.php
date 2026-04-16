@@ -7,9 +7,9 @@ use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Support\Facades\Hash;
 
-class CreateUser
+readonly class CreateUserAction
 {
-    public function __construct(private readonly UserRepository $users) {}
+    public function __construct(private UserRepository $users) {}
 
     public function __invoke(CreateUserDTO $dto): User
     {

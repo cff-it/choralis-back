@@ -67,12 +67,17 @@ public function store(Request $request): JsonResponse
 }
 ```
 
-### 2. Les Actions utilisent `__invoke()`
+### 2. Les Actions sont des `readonly class` avec `__invoke()`
 
 ```php
 // ✅ Correct
-class CheckInMember
+readonly class CheckInMember
 {
+    public function __construct(
+        private EventRepository $events,
+        private UserRepository $users,
+    ) {}
+
     public function __invoke(CheckInDTO $dto): EventCheck
     {
         // toute la logique ici
@@ -83,6 +88,14 @@ class CheckInMember
 class CheckInMember
 {
     public function execute(CheckInDTO $dto): EventCheck { ... }
+}
+
+// ❌ Interdit — class non readonly
+class CheckInMember
+{
+    public function __construct(
+        private EventRepository $events,
+    ) {}
 }
 ```
 
@@ -144,6 +157,7 @@ public function toDTO(): CheckInDTO
 | Logique métier dans les Controllers | Action |
 | Logique métier dans les Models | Action |
 | `execute()` dans les Actions | `__invoke()` |
+| `class` simple pour une Action | `readonly class` |
 | Fat Controller (>10 lignes par méthode) | Découper en Actions |
 | DDD / CQRS / Clean Architecture complète | Action Pattern suffisant |
 | Requêtes BDD dans les Controllers | Repository |
@@ -164,7 +178,7 @@ public function toDTO(): CheckInDTO
 
 ## Conventions de nommage
 
-- **Actions** : verbe + nom + Action → `CreateSongAction`, `CheckInMemberAction`, `GeneratePptxAction`
+- **Actions** : verbe + nom + suffixe `Action` → `CreateSongAction`, `CheckInMemberAction`, `GeneratePptxAction`
 - **DTOs** : nom + DTO → `CheckInDTO`, `CreateSongDTO`
 - **Repositories** : nom + Repository → `SongRepository`, `EventRepository`
 - **Policies** : nom + Policy → `SongPolicy`, `EventPolicy`

@@ -7,9 +7,9 @@ use App\Models\EventSubscription;
 use App\Repositories\EventRepository;
 use Illuminate\Validation\ValidationException;
 
-class SubscribeToEvent
+readonly class SubscribeToEventAction
 {
-    public function __construct(private readonly EventRepository $events) {}
+    public function __construct(private EventRepository $events) {}
 
     public function __invoke(SubscribeToEventDTO $dto): EventSubscription
     {

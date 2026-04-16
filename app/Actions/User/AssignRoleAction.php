@@ -6,9 +6,9 @@ use App\DTOs\User\AssignRoleDTO;
 use App\Models\User;
 use App\Repositories\UserRepository;
 
-class AssignRole
+readonly class AssignRoleAction
 {
-    public function __construct(private readonly UserRepository $users) {}
+    public function __construct(private UserRepository $users) {}
 
     public function __invoke(AssignRoleDTO $dto): User
     {

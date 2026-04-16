@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Event\CheckInMember;
-use App\Actions\Event\CreateEvent;
-use App\Actions\Event\SubscribeToEvent;
+use App\Actions\Event\CheckInMemberAction;
+use App\Actions\Event\CreateEventAction;
+use App\Actions\Event\SubscribeToEventAction;
 use App\Http\Requests\Event\CheckInRequest;
 use App\Http\Requests\Event\CreateEventRequest;
 use App\Http\Requests\Event\SubscribeToEventRequest;
@@ -25,21 +25,21 @@ class EventController extends Controller
         return EventResource::make($events->findById($event));
     }
 
-    public function store(CreateEventRequest $request, CreateEvent $action): JsonResponse
+    public function store(CreateEventRequest $request, CreateEventAction $action): JsonResponse
     {
         $event = $action($request->toDTO());
 
         return EventResource::make($event)->response()->setStatusCode(201);
     }
 
-    public function subscribe(SubscribeToEventRequest $request, int $event, SubscribeToEvent $action): JsonResponse
+    public function subscribe(SubscribeToEventRequest $request, int $event, SubscribeToEventAction $action): JsonResponse
     {
         $subscription = $action($request->toDTO());
 
         return response()->json($subscription, 201);
     }
 
-    public function checkIn(CheckInRequest $request, int $event, CheckInMember $action): JsonResponse
+    public function checkIn(CheckInRequest $request, int $event, CheckInMemberAction $action): JsonResponse
     {
         $check = $action($request->toDTO());
 

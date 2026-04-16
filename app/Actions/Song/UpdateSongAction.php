@@ -2,17 +2,19 @@
 
 namespace App\Actions\Song;
 
-use App\DTOs\Song\CreateSongDTO;
+use App\DTOs\Song\UpdateSongDTO;
 use App\Models\Song;
 use App\Repositories\SongRepository;
 
-class CreateSong
+readonly class UpdateSongAction
 {
-    public function __construct(private readonly SongRepository $songs) {}
+    public function __construct(private SongRepository $songs) {}
 
-    public function __invoke(CreateSongDTO $dto): Song
+    public function __invoke(UpdateSongDTO $dto): Song
     {
-        return $this->songs->create([
+        $song = $this->songs->findById($dto->id);
+
+        return $this->songs->update($song, [
             'title'     => $dto->title,
             'author'    => $dto->author,
             'reference' => $dto->reference,

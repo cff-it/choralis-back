@@ -7,9 +7,9 @@ use App\Models\EventCheck;
 use App\Repositories\EventRepository;
 use Illuminate\Validation\ValidationException;
 
-class CheckInMember
+readonly class CheckInMemberAction
 {
-    public function __construct(private readonly EventRepository $events) {}
+    public function __construct(private EventRepository $events) {}
 
     public function __invoke(CheckInDTO $dto): EventCheck
     {

@@ -7,11 +7,11 @@ use App\Models\MassSong;
 use App\Repositories\MassRepository;
 use App\Repositories\SongRepository;
 
-class AssignSongToMassPart
+readonly class AssignSongToMassPartAction
 {
     public function __construct(
-        private readonly MassRepository $masses,
-        private readonly SongRepository $songs,
+        private MassRepository $masses,
+        private SongRepository $songs,
     ) {}
 
     public function __invoke(AssignSongToMassPartDTO $dto): MassSong

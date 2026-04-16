@@ -5,9 +5,9 @@ namespace App\Actions\Mass;
 use App\Models\Mass;
 use App\Repositories\MassRepository;
 
-class GeneratePptx
+readonly class GeneratePptxAction
 {
-    public function __construct(private readonly MassRepository $masses) {}
+    public function __construct(private MassRepository $masses) {}
 
     public function __invoke(int $massId): string
     {

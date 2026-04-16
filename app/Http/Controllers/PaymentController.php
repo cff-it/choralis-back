@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Payment\RecordUserPayment;
+use App\Actions\Payment\RecordUserPaymentAction;
 use App\Http\Requests\Payment\RecordUserPaymentRequest;
 use App\Http\Resources\EventPaymentResource;
 use App\Http\Resources\UserPaymentResource;
@@ -22,7 +22,7 @@ class PaymentController extends Controller
         return UserPaymentResource::collection($payments->userPaymentsForEvent($event));
     }
 
-    public function record(RecordUserPaymentRequest $request, int $event, RecordUserPayment $action): JsonResponse
+    public function record(RecordUserPaymentRequest $request, int $event, RecordUserPaymentAction $action): JsonResponse
     {
         $payment = $action($request->toDTO());
 

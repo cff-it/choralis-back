@@ -6,9 +6,9 @@ use App\DTOs\Payment\RecordUserPaymentDTO;
 use App\Models\UserPayment;
 use App\Repositories\UserRepository;
 
-class RecordUserPayment
+readonly class RecordUserPaymentAction
 {
-    public function __construct(private readonly UserRepository $users) {}
+    public function __construct(private UserRepository $users) {}
 
     public function __invoke(RecordUserPaymentDTO $dto): UserPayment
     {

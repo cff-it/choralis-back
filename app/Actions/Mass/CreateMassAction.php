@@ -6,9 +6,9 @@ use App\DTOs\Mass\CreateMassDTO;
 use App\Models\Mass;
 use App\Repositories\MassRepository;
 
-class CreateMass
+readonly class CreateMassAction
 {
-    public function __construct(private readonly MassRepository $masses) {}
+    public function __construct(private MassRepository $masses) {}
 
     public function __invoke(CreateMassDTO $dto): Mass
     {

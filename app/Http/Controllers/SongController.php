@@ -2,9 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Actions\Song\AttachSongToMass;
-use App\Actions\Song\CreateSong;
-use App\Actions\Song\UpdateSong;
+use App\Actions\Song\AttachSongToMassAction;
+use App\Actions\Song\CreateSongAction;
+use App\Actions\Song\UpdateSongAction;
 use App\Http\Requests\Song\AttachSongToMassRequest;
 use App\Http\Requests\Song\CreateSongRequest;
 use App\Http\Requests\Song\UpdateSongRequest;
@@ -26,14 +26,14 @@ class SongController extends Controller
         return SongResource::make($songs->findById($song));
     }
 
-    public function store(CreateSongRequest $request, CreateSong $action): JsonResponse
+    public function store(CreateSongRequest $request, CreateSongAction $action): JsonResponse
     {
         $song = $action($request->toDTO());
 
         return SongResource::make($song)->response()->setStatusCode(201);
     }
 
-    public function update(UpdateSongRequest $request, int $song, UpdateSong $action): SongResource
+    public function update(UpdateSongRequest $request, int $song, UpdateSongAction $action): SongResource
     {
         return SongResource::make($action($request->toDTO()));
     }
@@ -45,7 +45,7 @@ class SongController extends Controller
         return response()->json(null, 204);
     }
 
-    public function attach(AttachSongToMassRequest $request, int $song, AttachSongToMass $action): MassPartResource
+    public function attach(AttachSongToMassRequest $request, int $song, AttachSongToMassAction $action): MassPartResource
     {
         return MassPartResource::make($action($request->toDTO()));
     }
