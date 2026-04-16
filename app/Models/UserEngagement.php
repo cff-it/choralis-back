@@ -5,7 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property Carbon|null $adhesion_date
+ * @property Carbon|null $engagement_date
+ * @property string|null $engagement_place
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class UserEngagement extends Model
 {
     use HasFactory;

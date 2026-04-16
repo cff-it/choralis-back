@@ -11,7 +11,21 @@ use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
 use Spatie\Permission\Traits\HasRoles;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property string $mail
+ * @property int|null $facebook_id
+ * @property string $last_name
+ * @property string|null $nick_name
+ * @property string|null $token
+ * @property int|null $voice_id
+ * @property string $password
+ * @property Carbon|null $email_verified_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class User extends Authenticatable
 {
     /** @use HasFactory<UserFactory> */

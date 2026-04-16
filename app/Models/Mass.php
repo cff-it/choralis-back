@@ -5,7 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property Carbon $date
+ * @property string|null $liturgical_name
+ * @property string|null $prayer_cycle
+ * @property string|null $notes
+ * @property bool $is_public
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class Mass extends Model
 {
     use HasFactory;

@@ -6,7 +6,17 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property string $uuid
+ * @property int $song_id
+ * @property int $libretto_id
+ * @property int $position
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class SongLibretto extends Model
 {
     use HasFactory, HasUuids;

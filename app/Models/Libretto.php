@@ -6,7 +6,17 @@ use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property string $uuid
+ * @property string $name
+ * @property string|null $color_one
+ * @property string|null $color_two
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class Libretto extends Model
 {
     use HasFactory, HasUuids;

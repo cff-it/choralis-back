@@ -5,7 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property int $mass_id
+ * @property int $mass_role_id
+ * @property string|null $notes
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class MassRoleAssignment extends Model
 {
     use HasFactory;

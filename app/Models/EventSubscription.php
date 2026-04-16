@@ -5,7 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property int $event_id
+ * @property Carbon $subscribed_at
+ * @property bool $has_paid
+ * @property Carbon|null $paid_at
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class EventSubscription extends Model
 {
     use HasFactory;

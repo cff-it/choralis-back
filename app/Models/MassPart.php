@@ -7,7 +7,18 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property string $uuid
+ * @property int $mass_id
+ * @property int $mass_part_type_id
+ * @property int|null $prayer_id
+ * @property string|null $antiphon
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class MassPart extends Model
 {
     use HasFactory, HasUuids;

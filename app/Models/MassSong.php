@@ -6,7 +6,16 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property int $mass_part_id
+ * @property int $song_id
+ * @property string|null $specific_title
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class MassSong extends Model
 {
     use HasFactory;

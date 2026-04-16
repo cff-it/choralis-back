@@ -5,7 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property string $name
+ * @property Carbon $date_start
+ * @property Carbon|null $date_end
+ * @property bool $need_payment
+ * @property int|null $payment_amount
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class Event extends Model
 {
     use HasFactory;

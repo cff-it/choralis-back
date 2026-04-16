@@ -5,7 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property string $first_name
+ * @property int $order
+ * @property bool $default
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class Firstname extends Model
 {
     use HasFactory;

@@ -5,7 +5,17 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property int $user_id
+ * @property int $event_id
+ * @property Carbon $date_in
+ * @property Carbon|null $date_out
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class EventCheck extends Model
 {
     use HasFactory;

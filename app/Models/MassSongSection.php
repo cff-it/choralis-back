@@ -5,7 +5,16 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Carbon\Carbon;
 
+/**
+ * @property int $id
+ * @property int $mass_song_id
+ * @property int $song_section_id
+ * @property int $position
+ * @property Carbon $created_at
+ * @property Carbon $updated_at
+ */
 class MassSongSection extends Model
 {
     use HasFactory;
