@@ -3,7 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
-    container_name: cff-back-app
+    container_name: choralis-back-app
     restart: unless-stopped
     working_dir: /var/www
     volumes:
@@ -17,7 +17,7 @@ services:
 
   nginx:
     image: nginx:alpine
-    container_name: cff-back-nginx
+    container_name: choralis-back-nginx
     restart: unless-stopped
     ports:
       - "8000:80"
@@ -30,24 +30,23 @@ services:
       - app
 
   db:
-    image: mysql:8.0
-    container_name: cff-back-db
+    image: postgres:17-alpine
+    container_name: choralis-back-db
     restart: unless-stopped
     environment:
-      MYSQL_DATABASE: ${DB_DATABASE:-cff_back}
-      MYSQL_ROOT_PASSWORD: ${DB_PASSWORD:-secret}
-      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
-      MYSQL_USER: ${DB_USERNAME:-cff_user}
+      POSTGRES_DB: ${DB_DATABASE:-choralis}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-secret}
+      POSTGRES_USER: ${DB_USERNAME:-choralis_user}
     ports:
-      - "3306:3306"
+      - "5433:5432"
     volumes:
-      - db-data:/var/lib/mysql
+      - db-data:/var/lib/postgresql/data
     networks:
       - cff-network
 
   redis:
     image: redis:alpine
-    container_name: cff-back-redis
+    container_name: choralis-back-redis
     restart: unless-stopped
     ports:
       - "6379:6379"
